@@ -20,7 +20,8 @@ const webpackDevConfig = merge(baseWebpackConfig, {
     host: '0.0.0.0',
     port: 5555,
     // 静态文件路径
-    contentBase: path.join(ROOT_PATH, '../dist'),
+    contentBase: path.join(ROOT_PATH, '../src'),
+    // contentBase: path.join(ROOT_PATH, '../dist'), // html引入css不生效的问题
     inline: true,
     overlay: {
       errors: true,
@@ -42,7 +43,7 @@ const webpackDevConfig = merge(baseWebpackConfig, {
       {
         // loader编译之前，去验证
         enforce: 'pre',
-        test: /.(js|jsx)$/,
+        test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
         // 排除
         exclude: [
@@ -51,17 +52,17 @@ const webpackDevConfig = merge(baseWebpackConfig, {
         ],
       },
       {
-        test: /.jsx$/,
+        test: /\.jsx$/,
         loader: 'babel-loader',
         exclude: [path.join(ROOT_PATH, '../node_modules')],
       },
       {
-        test: /.js$/,
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: [path.join(ROOT_PATH, '../node_modules')],
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
@@ -79,6 +80,12 @@ const webpackDevConfig = merge(baseWebpackConfig, {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader' },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+            },
+          },
           { loader: 'sass-loader' },
           {
             loader: 'sass-resources-loader',

@@ -22,7 +22,7 @@ const webpackProdConfig = merge(baseWebpackConfig, {
       {
         // loader编译之前，去验证
         enforce: 'pre',
-        test: /.(js|jsx)$/,
+        test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
         // 排除
         exclude: [
@@ -31,16 +31,16 @@ const webpackProdConfig = merge(baseWebpackConfig, {
         ],
       },
       {
-        test: /.jsx$/,
+        test: /\.jsx$/,
         loader: 'babel-loader',
       },
       {
-        test: /.js$/,
+        test: /\.js$/,
         loader: 'babel-loader',
         exclude: [path.join(ROOT_PATH, '../node_modules')],
       },
       {
-        test: /.css$/,
+        test: /\.css$/,
         use: [
           { loader: 'style-loader' },
           {
