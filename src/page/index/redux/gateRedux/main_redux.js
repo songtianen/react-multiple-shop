@@ -1,3 +1,4 @@
+// redux 出口
 import actions from '../actions/gateActions';
 import * as constants from '../constants/constants';
 import reducers from '../reducers/gateReduces';

@@ -1,3 +1,3 @@
-const ADD = 'main/ADD';
+const CHANEG_TAB = 'main/CHANEG_TAB';
 
-export default { ADD };
+export default { CHANEG_TAB };
