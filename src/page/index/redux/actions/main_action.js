@@ -1,8 +1,5 @@
 import actionsTypes from './actionTypes';
 
-const changeTab = (data) => {
+export const changeTab = (data) => {
   return { type: actionsTypes.CHANEG_TAB, data };
-};
-export default {
-  changeTab,
 };

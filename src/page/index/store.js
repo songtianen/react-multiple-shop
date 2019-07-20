@@ -1,6 +1,6 @@
 // import createSagaMiddleware from 'redux-saga';
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './redux/gateRedux/index';
+import rootReducer from './redux/gateRedux/rootReducer';
 // import rootSaga from './saga/index';
 // const sagaMiddleware = createSagaMiddleware();
 // let middleWare = [sagaMiddleware];

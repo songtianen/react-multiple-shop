@@ -1,9 +1,8 @@
 import './BottomBar.scss';
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import mainRedux from '../redux/gateRedux/main_redux';
+import mainRedux from '../redux/gateRedux/index_redux';
 
 /**
  * @constructor <BottomBar>
@@ -39,7 +38,7 @@ class BottomBar extends React.PureComponent {
   };
 
   componentDidMount() {
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   onChangeTab = (item) => {
@@ -56,15 +55,11 @@ class BottomBar extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state--', state);
+  // console.log('state--', state);
   return {
     tabs: state.main.tabs,
     activeKey: state.main.activeKey,
   };
 };
-BottomBar.propTypes = {
-  tabs: PropTypes.array.isRequired,
-  activeKey: PropTypes.string.isRequired,
-  dispatch: PropTypes.func.isRequired,
-};
+
 export default connect(mapStateToProps)(BottomBar);

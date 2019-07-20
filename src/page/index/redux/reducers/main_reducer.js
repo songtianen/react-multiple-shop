@@ -1,8 +1,8 @@
-import getActions from '../actions/gateActions';
+import gateAction from '../actions/gateActions';
 import { TABKEY } from '../../config';
 
-export default function app(state, action) {
-  console.log('///', action);
+export default function main(state, action) {
+  // console.log('///', action);
   if (!state) {
     state = {
       tabs: [
@@ -23,7 +23,7 @@ export default function app(state, action) {
     };
   }
   switch (action.type) {
-    case getActions.types.CHANEG_TAB:
+    case gateAction.types.CHANEG_TAB:
       return {
         ...state,
         ...action.data,

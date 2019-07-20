@@ -1,4 +1,6 @@
 @function px2rem($px) {
+  // 屏幕375iPhone5尺寸 划分为10等分
+  // 根据iPhone5的px尺寸求在实际窗口下的rem尺寸
   $rem: 37.5px;
   @return ($px / $rem) + rem;
 }
