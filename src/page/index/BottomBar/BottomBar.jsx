@@ -2,13 +2,13 @@ import './BottomBar.scss';
 
 import React from 'react';
 import { connect } from 'react-redux';
-import mainRedux from '../redux/gateRedux/index_redux';
+import { withRouter } from 'react-router-dom';
+import { changeTab } from '../redux/actions/main_action';
 
 /**
  * @constructor <BottomBar>
  * @description 首页底部tab栏
  */
-const { changeTab } = mainRedux.actions.mainActions;
 
 class BottomBar extends React.PureComponent {
   state = {};
@@ -23,22 +23,22 @@ class BottomBar extends React.PureComponent {
       }
 
       return (
-        <div
-          className={cls}
-          key={index}
-          onClick={() => {
-            this.onChangeTab(item);
-          }}
-        >
-          <div className='tab-icon' />
-          <div className='btn-name'>{name}</div>
+        <div className={cls} key={index}>
+          <div
+            onClick={() => {
+              this.onChangeTab(item);
+            }}
+          >
+            <div className='tab-icon' />
+            <div className='btn-name'>{name}</div>
+          </div>
         </div>
       );
     });
   };
 
   componentDidMount() {
-    // console.log(this.props);
+    console.log('bottomBar', this.props);
   }
 
   onChangeTab = (item) => {
@@ -47,6 +47,7 @@ class BottomBar extends React.PureComponent {
         activeKey: item.key,
       }),
     );
+    this.props.history.replace(item.key);
   };
 
   render() {
@@ -62,4 +63,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(BottomBar);
+export default withRouter(connect(mapStateToProps)(BottomBar));

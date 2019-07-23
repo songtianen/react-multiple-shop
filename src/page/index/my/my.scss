@@ -1,0 +1,104 @@
+.my {
+  .header {
+    width: 100%;
+    height: px2rem(160px);
+    background-image: url('./img/header.png');
+    background-size: cover;
+    overflow: hidden;
+  }
+  .avatar {
+    width: px2rem(72px);
+    height: px2rem(72px);
+    margin: 0 auto;
+    display: block;
+    // margin 穿透
+    margin-top: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+  }
+  .nickname {
+    color: #333;
+    font-size: px2rem(16px);
+    text-align: center;
+    margin-top: px2rem(20px);
+  }
+  .content {
+    min-height: px2rem(507px);
+  }
+  .items {
+    border-bottom: px2rem(10px) solid #eaeaea;
+    width: 100%;
+
+    // overflow: hidden;
+    li {
+      position: relative;
+      height: px2rem(45px);
+      line-height: px2rem(45px);
+      font-size: px2rem(14px);
+      padding-left: px2rem(26px);
+      border-bottom: 1px solid #e4e4e4;
+      margin-left: px2rem(20px);
+      &:last-child {
+        border: none;
+      }
+      // 通用的before样式
+      &:before {
+        content: '';
+        display: block;
+        width: px2rem(16px);
+        height: px2rem(16px);
+        position: absolute;
+        top: 50%;
+        // 居中
+        transform: translateY(-50%);
+        background-size: cover;
+        left: 0;
+      }
+      &:after {
+        content: '>';
+        display: block;
+        width: px2rem(16px);
+        height: px2rem(16px);
+        position: absolute;
+        top: 0;
+        right: 10px;
+        color: #333;
+      }
+    }
+    .address {
+      &:before {
+        background-image: url('./img/address.png');
+      }
+    }
+    .money {
+      &:before {
+        background-image: url('./img/money.png');
+      }
+    }
+    .email {
+      &:before {
+        background-image: url('./img/email.png');
+      }
+    }
+    .question {
+      &:before {
+        background-image: url('./img/question.png');
+      }
+    }
+  }
+  .tel {
+    font-size: px2rem(15px);
+    color: #ffb000;
+    text-align: center;
+    height: px2rem(46px);
+    line-height: px2rem(46px);
+    background-color: #fff;
+  }
+  .time {
+    font-size: px2rem(14px);
+    color: #d3d3d3;
+    text-align: center;
+    height: px2rem(46px);
+    line-height: px2rem(46px);
+  }
+}

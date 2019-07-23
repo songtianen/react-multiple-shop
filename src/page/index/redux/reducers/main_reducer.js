@@ -1,4 +1,4 @@
-import gateAction from '../actions/gateActions';
+import actionType from '../actions/actionTypes';
 import { TABKEY } from '../../config';
 
 export default function main(state, action) {
@@ -19,11 +19,11 @@ export default function main(state, action) {
           key: TABKEY.mine,
         },
       ],
-      activeKey: TABKEY.home,
+      activeKey: TABKEY.mine,
     };
   }
   switch (action.type) {
-    case gateAction.types.CHANEG_TAB:
+    case actionType.CHANEG_TAB:
       return {
         ...state,
         ...action.data,

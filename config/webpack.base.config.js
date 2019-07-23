@@ -56,6 +56,9 @@ const baseWebpackConfig = {
   devtool: 'inline-source-map',
 
   resolve: {
+    alias: {
+      component: path.resolve(srcRoot, 'component'),
+    },
     extensions: ['.js', '.jsx', '.json'],
   },
 

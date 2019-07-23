@@ -10,6 +10,7 @@ const baseWebpackConfig = require('./webpack.base.config');
 
 const srcRoot = path.resolve(__dirname, '../src');
 const ROOT_PATH = path.resolve(__dirname);
+// const distPath = path.resolve(__dirname, '../dist');
 
 const webpackDevConfig = merge(baseWebpackConfig, {
   mode: 'development',
@@ -22,6 +23,7 @@ const webpackDevConfig = merge(baseWebpackConfig, {
     // 静态文件路径
     contentBase: path.join(ROOT_PATH, '../src'),
     // contentBase: path.join(ROOT_PATH, '../dist'), // html引入css不生效的问题
+    // contentBase: distPath,
     inline: true,
     overlay: {
       errors: true,
