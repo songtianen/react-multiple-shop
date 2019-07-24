@@ -20,7 +20,6 @@
     border-right: 1px solid #3e3e3e;
     flex: 1;
     text-align: center;
-    background-color: antiquewhite;
     &.cate:after,
     &.type:after {
       content: '';
@@ -67,5 +66,106 @@
   }
   .item:last-child {
     border-right: none;
+  }
+  // ---
+  .panel {
+    position: absolute;
+    display: none;
+    z-index: 4;
+    left: 0;
+    top: 105px;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    &.show {
+      display: block;
+    }
+    .panel-inner {
+      height: 300px;
+      // 垂直方向滚动
+      overflow-x: hidden;
+      overflow-y: auto;
+      background-color: #fff;
+      > ul {
+        display: none;
+        background-color: #fff;
+        &.current {
+          display: block;
+        }
+      }
+    }
+    .item-title {
+      position: relative;
+      font-size: px2rem(12px);
+      background-color: #efefef;
+      line-height: px2rem(30px);
+      color: #666;
+      padding-left: px2rem(13px);
+      box-sizing: border-box;
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        margin-top: px2rem(8px);
+        margin-right: px2rem(6px);
+        margin-left: px2rem(-8px);
+        width: px2rem(2px);
+        height: px2rem(16px);
+        background-color: #ffd161;
+      }
+    }
+    .item-content {
+      min-height: px2rem(20px);
+    }
+    .cate-box {
+      float: left;
+      position: relative;
+      width: 33.33%;
+      font-size: px2rem(12px);
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .cate-box-inner {
+      border: 1px solid #c4c4c4;
+      text-align: center;
+      color: #666;
+      height: px2rem(37px);
+      line-height: px2rem(37px);
+      &.active {
+        // background-color: #c4c4c4;
+        color: #ffd161;
+        border-color: #ffd161;
+      }
+    }
+    .has-icon img {
+      display: block;
+      width: px2rem(18px);
+      height: px2rem(18px);
+      position: absolute;
+      top: px2rem(18px);
+      left: px2rem(14px);
+    }
+    // --综合排序
+    .type-item {
+      border-bottom: 1px solid #c4c4c4;
+      height: px2rem(44px);
+      font-size: px2rem(13px);
+      color: #666;
+      line-height: px2rem(44px);
+      padding-left: px2rem(20px);
+      box-sizing: border-box;
+    }
+    // --筛选filter
+    .filter-item {
+      margin-bottom: px2rem(10px);
+      margin-top: px2rem(10px);
+      padding-left: px2rem(5px);
+      padding-right: px2rem(5px);
+    }
+    .filter-title {
+      color: #999;
+      font-size: px2rem(12px);
+      padding-left: px2rem(14px);
+    }
   }
 }
