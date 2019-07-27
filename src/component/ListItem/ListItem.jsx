@@ -75,7 +75,7 @@ class ListItem extends React.PureComponent {
   render() {
     let { itemData } = this.props;
     return (
-      <div className='item-content scale-1px'>
+      <div className='r-item-content scale-1px'>
         <img className='item-img' src={itemData.pic_url} alt='' />
         {this.renderBrand(itemData)}
         <div className='item-info-content'>

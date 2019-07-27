@@ -6,6 +6,7 @@ import {
   getFilterData,
   changeFilter,
 } from '../redux/actions/tab_action';
+import { fetchContentListData } from '../redux/actions/contentList_action';
 import { TABKEY } from '../config';
 import './Header.scss';
 
@@ -42,6 +43,13 @@ class Header extends React.PureComponent {
       changeFilter({
         item,
         key,
+      }),
+    );
+    this.props.dispatch(
+      fetchContentListData({
+        // 当前点击状态所有内容
+        filterData: item,
+        toFirstPage: true,
       }),
     );
   };
@@ -237,7 +245,7 @@ class Header extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state>>', state);
+  // console.log('state>>', state);
   return {
     tabs: state.tab.tabs,
     activeKey: state.tab.activeKey,
