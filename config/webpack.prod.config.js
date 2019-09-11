@@ -6,8 +6,11 @@ const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const baseWebpackConfig = require('./webpack.base.config');
+const postcssNormalize = require('postcss-normalize');
 
-const srcRoot = path.resolve(__dirname, '../src');
+const px2rem = require('postcss-px2rem');
+
+// const srcRoot = path.resolve(__dirname, '../src');
 const ROOT_PATH = path.resolve(__dirname);
 
 const webpackProdConfig = merge(baseWebpackConfig, {
@@ -16,6 +19,7 @@ const webpackProdConfig = merge(baseWebpackConfig, {
     filename: '[name].[hash].bundle.js',
     chunkFilename: '[name].[hash].bundle.js',
     publicPath: '',
+    // publicPath: '/public/',
   },
   module: {
     rules: [
@@ -33,6 +37,7 @@ const webpackProdConfig = merge(baseWebpackConfig, {
       {
         test: /\.jsx$/,
         loader: 'babel-loader',
+        exclude: [path.join(ROOT_PATH, '../node_modules')],
       },
       {
         test: /\.js$/,
@@ -42,7 +47,7 @@ const webpackProdConfig = merge(baseWebpackConfig, {
       {
         test: /\.css$/,
         use: [
-          { loader: 'style-loader' },
+          // { loader: 'style-loader' },
           {
             loader: MiniCssExtractPlugin.loader,
           },
@@ -51,6 +56,17 @@ const webpackProdConfig = merge(baseWebpackConfig, {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                }),
+                postcssNormalize(),
+                px2rem({ remUnit: 75 }),
+              ],
             },
           },
         ],
@@ -59,18 +75,35 @@ const webpackProdConfig = merge(baseWebpackConfig, {
       {
         test: /\.scss$/,
         use: [
-          { loader: 'style-loader' },
+          // { loader: 'style-loader' },
           {
             loader: MiniCssExtractPlugin.loader,
           },
           { loader: 'css-loader' },
-          { loader: 'sass-loader' },
           {
-            loader: 'sass-resources-loader',
+            loader: 'postcss-loader',
             options: {
-              resources: srcRoot + '/component/rem_function.scss',
+              ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                }),
+                postcssNormalize(),
+                px2rem({ remUnit: 75 }),
+              ],
             },
           },
+          { loader: 'sass-loader' },
+          // {
+          //   loader: 'sass-resources-loader',
+          //   options: {
+          //     resources: srcRoot + '/component/rem_function.scss',
+          //   },
+          // },
         ],
         exclude: [path.join(ROOT_PATH, '../node_modules')],
       },

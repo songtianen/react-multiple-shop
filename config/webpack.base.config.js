@@ -40,6 +40,7 @@ function getHtmlArray(entryMap) {
           filename: key + '.html',
           template: fileName,
           chunks: ['vendor', key, 'runtime~' + key],
+          eject: true,
         }),
       );
     }
@@ -118,6 +119,7 @@ const baseWebpackConfig = {
   plugins: [
     // 由于mac不区分大小写，linux区分大小写，可能导致mac上正常，在部署时出错，所以强制区分大小写
     new CaseSensitivePathsPlugin(),
+
     // new HtmlWebpackPlugin({
     //   filename: 'index.html',
     //   template: path.join(ROOT_PATH, '../src/index.html'),

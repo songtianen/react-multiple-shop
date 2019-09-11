@@ -7,8 +7,10 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 // const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const baseWebpackConfig = require('./webpack.base.config');
+const postcssNormalize = require('postcss-normalize');
+const px2rem = require('postcss-px2rem');
 
-const srcRoot = path.resolve(__dirname, '../src');
+// const srcRoot = path.resolve(__dirname, '../src');
 const ROOT_PATH = path.resolve(__dirname);
 // const distPath = path.resolve(__dirname, '../dist');
 
@@ -86,15 +88,26 @@ const webpackDevConfig = merge(baseWebpackConfig, {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
+              plugins: () => [
+                require('postcss-flexbugs-fixes'),
+                require('postcss-preset-env')({
+                  autoprefixer: {
+                    flexbox: 'no-2009',
+                  },
+                  stage: 3,
+                }),
+                postcssNormalize(),
+                px2rem({ remUnit: 75 }),
+              ],
             },
           },
           { loader: 'sass-loader' },
-          {
-            loader: 'sass-resources-loader',
-            options: {
-              resources: srcRoot + '/component/rem_function.scss',
-            },
-          },
+          // {
+          //   loader: 'sass-resources-loader',
+          //   options: {
+          //     resources: srcRoot + '/component/rem_function.scss',
+          //   },
+          // },
         ],
         exclude: [path.join(ROOT_PATH, '../node_modules')],
       },
