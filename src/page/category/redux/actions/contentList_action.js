@@ -1,7 +1,5 @@
 import Axios from 'axios';
 import actionsTypes from './actionTypes';
-import '../../../mock/category_FetchContentListData';
-// import '../../../mock/category_getHomelist';
 
 export const fetchContentListData = (obj) => async (dispatch, getState) => {
   let url = '/fetch_content_list';

@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import actionType from './actionTypes';
-import '../../../mock/orderData';
 
 export const orderAction = (page) => (dispath) => {
   Axios.get('/getorderdata')

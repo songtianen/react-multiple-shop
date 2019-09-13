@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import actions from './actionTypes';
-import '../../../mock/contentListData';
 
 export const contentListData = (page) => (dispath) => {
   Axios.get('/getlistdata')

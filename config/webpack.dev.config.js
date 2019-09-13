@@ -23,8 +23,8 @@ const webpackDevConfig = merge(baseWebpackConfig, {
     host: '0.0.0.0',
     port: 5555,
     // 静态文件路径
-    contentBase: path.join(ROOT_PATH, '../src'),
-    // contentBase: path.join(ROOT_PATH, '../dist'), // html引入css不生效的问题
+    // contentBase: path.join(ROOT_PATH, '../src'),
+    contentBase: path.join(ROOT_PATH, '../dist'), // html引入css不生效的问题
     // contentBase: distPath,
     inline: true,
     overlay: {
@@ -32,7 +32,7 @@ const webpackDevConfig = merge(baseWebpackConfig, {
     },
     proxy: {
       '/api': {
-        target: 'http://localhost:2223',
+        target: 'http://localhost:2223', // 代理到地址
         changeOrigin: true,
         pathRewrite: { '^/api': '' },
       },

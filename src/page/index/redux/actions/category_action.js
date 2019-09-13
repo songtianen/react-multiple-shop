@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import actions from './actionTypes';
-import '../../../mock/data2';
 
 export const categoryData = () => (dispath) => {
   Axios.get('/postdata1')

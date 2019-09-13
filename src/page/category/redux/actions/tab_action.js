@@ -1,6 +1,5 @@
 import Axios from 'axios';
 import actionsTypes from './actionTypes';
-import '../../../mock/getHeaderData';
 
 export const changeTab = (obj) => (dispatch) => {
   // console.log('changeTab');
