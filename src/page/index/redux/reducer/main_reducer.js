@@ -2,7 +2,6 @@ import actionType from '../actions/actionTypes';
 import { TABKEY } from '../../config';
 
 export default function main(state, action) {
-  // console.log('///', action);
   if (!state) {
     state = {
       tabs: [
@@ -19,6 +18,7 @@ export default function main(state, action) {
           key: TABKEY.mine,
         },
       ],
+      // 当前激活态
       activeKey: TABKEY.mine,
     };
   }

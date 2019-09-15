@@ -1,9 +1,8 @@
 import './BottomBar.scss';
-
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { changeTab } from '../redux/actions/main_action';
+import { changeTab } from '../redux/actions/index';
 
 /**
  * @constructor <BottomBar>
@@ -21,7 +20,6 @@ class BottomBar extends React.PureComponent {
       if (item.key === this.props.activeKey) {
         cls += ' active';
       }
-
       return (
         <div className={cls} key={index}>
           <div
@@ -38,7 +36,7 @@ class BottomBar extends React.PureComponent {
   };
 
   componentDidMount() {
-    console.log('bottomBar', this.props);
+    console.log('bottomBar render');
   }
 
   onChangeTab = (item) => {
@@ -56,7 +54,7 @@ class BottomBar extends React.PureComponent {
 }
 
 const mapStateToProps = (state) => {
-  // console.log('state--', state);
+  console.log('state--', state);
   return {
     tabs: state.main.tabs,
     activeKey: state.main.activeKey,

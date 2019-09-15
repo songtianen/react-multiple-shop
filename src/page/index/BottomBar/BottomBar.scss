@@ -1,23 +1,45 @@
+// @mixin px2px($name, $px) {
+//   #{$name}: round($px/2) * 1px;
+//   [data-dpr='2']& {
+//     #{$name}: $px * 1px;
+//   }
+//   // for mx3
+//   [data-dpr='2.5'] & {
+//     #{$name}: round($px * 2.5 / 2) * 1px;
+//   }
+//   // for 小米note
+//   [data-dpr='2.75'] & {
+//     #{$name}: round($px * 2.75 / 2) * 1px;
+//   }
+//   [data-dpr='3'] & {
+//     #{$name}: round($px / 2 * 3) * 1px;
+//   }
+//   // for 三星note4
+//   [data-dpr='4'] & {
+//     #{$name}: $px * 2px;
+//   }
+// }
+
 .bottom-bar {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: px2rem(50px);
+  height: 80px;
   display: flex;
   border-top: 1px solid #b6b6b6;
   background-color: rgba(246, 246, 246, 0.95);
   .btn-item {
     flex: 1;
-    font-size: px2rem(11px);
+    font-size: 24px; /*px*/
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: '#8a8a8a';
     .tab-icon {
-      margin-bottom: px2rem(4px);
-      width: px2rem(25px);
-      height: px2rem(25px);
+      margin-bottom: 4px;
+      width: 25px;
+      height: 25px;
       background-size: cover;
     }
     &.active {
