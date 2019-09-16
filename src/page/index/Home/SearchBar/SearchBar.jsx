@@ -16,7 +16,9 @@ class SearchBar extends React.PureComponent {
         </div>
         <div className='search-btn'>
           <div className='search-right' />
-          <p className='place-holder'>美妆</p>
+          <p type='text' className='place-holder'>
+            美妆
+          </p>
         </div>
       </div>
     );

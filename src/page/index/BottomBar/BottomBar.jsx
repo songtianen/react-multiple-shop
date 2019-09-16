@@ -12,6 +12,15 @@ import { changeTab } from '../redux/actions/index';
 class BottomBar extends React.PureComponent {
   state = {};
 
+  onChangeTab = (item) => {
+    this.props.dispatch(
+      changeTab({
+        activeKey: item.key,
+      }),
+    );
+    this.props.history.replace(item.key);
+  };
+
   renderItems = () => {
     const { tabs } = this.props;
     return tabs.map((item, index) => {
@@ -38,15 +47,6 @@ class BottomBar extends React.PureComponent {
   componentDidMount() {
     console.log('bottomBar render');
   }
-
-  onChangeTab = (item) => {
-    this.props.dispatch(
-      changeTab({
-        activeKey: item.key,
-      }),
-    );
-    this.props.history.replace(item.key);
-  };
 
   render() {
     return <div className='bottom-bar'>{this.renderItems()}</div>;

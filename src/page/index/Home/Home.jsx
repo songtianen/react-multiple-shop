@@ -1,5 +1,5 @@
 import React from 'react';
-// import Header from './Header/Header';
+import Header from './Header/Header';
 // import Category from './Category/Category';
 // import ContentList from './ContentList/ContentList';
 /**
@@ -9,7 +9,11 @@ import React from 'react';
 
 class Home extends React.PureComponent {
   render() {
-    return <div>home页面</div>;
+    return (
+      <div className='home'>
+        <Header />
+      </div>
+    );
   }
 }
 export default Home;

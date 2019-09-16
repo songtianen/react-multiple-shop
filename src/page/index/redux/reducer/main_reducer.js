@@ -19,7 +19,7 @@ export default function main(state, action) {
         },
       ],
       // 当前激活态
-      activeKey: TABKEY.mine,
+      activeKey: TABKEY.home,
     };
   }
   switch (action.type) {
